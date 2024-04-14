@@ -1,0 +1,20 @@
+.container button {
+    border: none;
+    cursor: pointer;
+    border-radius: 0.9375rem;
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    letter-spacing: var(--leading-xs);
+    color: var(--color-dark-navy);
+    padding: 0.9375rem 1rem;
+    transition: all 0.3s ease;
+
+    background-color: var(--color-light-yellow);
+    box-shadow: rgb(204, 139, 19) 0px 4px;
+
+    &:active {
+        box-shadow: rgb(204, 139, 19) 0px 2px;
+        transform: translateY(0.15rem);
+    }
+}
