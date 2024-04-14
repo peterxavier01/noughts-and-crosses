@@ -1,0 +1,25 @@
+:root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  z-index: 5;
+}
+
+#modal-portal {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
