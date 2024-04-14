@@ -1,0 +1,98 @@
+.resultText {
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    letter-spacing: var(--leading-xs);
+    color: var(--color-silver);
+    margin-bottom: 1rem;
+
+    @media (max-width: 600px) {
+        font-size: var(--font-medium);
+        letter-spacing: var(--leading-body);
+    }
+}
+
+.markResult {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.4375rem;
+
+    svg {
+        height: 1.75rem;
+        width: 1.75rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        svg {
+            height: 4rem;
+            width: 4rem;
+        }
+    }
+}
+
+.markResult span:nth-of-type(2) {
+    font-weight: var(--font-bold);
+    color: var(--color-light-blue);
+    font-size: var(--text-md);
+    letter-spacing: var(--leading-md);
+
+
+    @media screen and (min-width: 600px) {
+        font-size: var(--text-lg);
+        letter-spacing: var(--leading-lg);
+    }
+}
+
+.roundTied {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    letter-spacing: var(--leading-lg);
+
+    color: var(--color-silver);
+
+    @media screen and (max-width: 600px) {
+        font-size: var(--text-md);
+        letter-spacing: var(--leading-md);
+    }
+}
+
+.btnWrapper button {
+    border: none;
+    cursor: pointer;
+    border-radius: 0.9375rem;
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    letter-spacing: var(--leading-xs);
+    color: var(--color-dark-navy);
+    padding: 0.9375rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.btnWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .btnOne {
+        background-color: var(--color-silver);
+        box-shadow: rgb(107, 137, 151) 0px 4px;
+
+        &:active {
+            box-shadow: rgb(107, 137, 151) 0px 2px;
+            transform: translateY(0.15rem);
+        }
+    }
+
+    .btnTwo {
+        background-color: var(--color-light-yellow);
+        box-shadow: rgb(204, 139, 19) 0px 4px;
+
+        &:active {
+            box-shadow: rgb(204, 139, 19) 0px 2px;
+            transform: translateY(0.15rem);
+        }
+    }
+}
