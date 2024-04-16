@@ -54,7 +54,7 @@ const GameScreen = () => {
         variants={headerVariants}
         className={styles.rowOne}
       >
-        <div>
+        <div className={styles.logoBox}>
           <img src={Logo} alt="nought and crosses royale logo" />
         </div>
         <Display />
@@ -94,9 +94,11 @@ const GameScreen = () => {
           score={score.O}
         />
       </motion.div>
-      <button className={styles.invite} onClick={handleClick}>
-        Invite Player
-      </button>
+      {mode === PVP && (
+        <button className={styles.invite} onClick={handleClick}>
+          Invite Player
+        </button>
+      )}
     </div>
   );
 };

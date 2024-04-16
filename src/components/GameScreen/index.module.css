@@ -1,7 +1,10 @@
 .gameWrapper {
+    max-width: 28.75rem;
     width: 100%;
-    min-height: 100%;
 
+    @media screen and (max-width: 767px) {
+        max-width: 20.5rem;
+    }
 
     .rowOne {
         display: flex;
@@ -11,16 +14,25 @@
     }
 
     .rowThree {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 1.25rem;
+
+        @media screen and (max-width: 767px) {
+            gap: 0.5rem;
+        }
     }
 
-    @media screen and (min-width: 768px) {
-        max-width: 28.75rem;
+}
+
+.gameWrapper .logoBox {
+    img {
+        width: 100%;
     }
 }
+
 
 .invite {
     width: 100%;
