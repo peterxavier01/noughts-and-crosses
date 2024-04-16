@@ -43,11 +43,16 @@
         svg {
             width: 32px;
             height: 32px;
+
+            @media screen and (max-width:767px) {
+                width: 28px;
+                height: 28px;
+            }
         }
     }
 
     p {
-        font-size: 0.875rem;
+        font-size: var(--text-body);
         letter-spacing: var(--leading-body);
         line-height: 0.625rem;
         color: var(--color-silver);
@@ -98,6 +103,10 @@
         color: var(--color-dark-navy);
         margin-bottom: 1.25rem;
         transition: all 200ms ease 0s;
+
+        @media screen and (max-width: 767px) {
+            font-size: var(--text-xs);
+        }
     }
 
     .btnOne {
