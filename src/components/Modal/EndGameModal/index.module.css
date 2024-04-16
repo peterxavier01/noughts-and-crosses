@@ -5,7 +5,7 @@
     color: var(--color-silver);
     margin-bottom: 1rem;
 
-    @media (max-width: 600px) {
+    @media (max-width: 767px) {
         font-size: var(--font-medium);
         letter-spacing: var(--leading-body);
     }
@@ -19,14 +19,17 @@
     margin-bottom: 1.4375rem;
 
     svg {
-        height: 1.75rem;
-        width: 1.75rem;
+        height: 4rem;
+        width: 4rem;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (max-width: 767px) {
+        gap: 1rem;
+
         svg {
-            height: 4rem;
-            width: 4rem;
+            height: 1.75rem;
+            width: 1.75rem;
+
         }
     }
 }
@@ -38,7 +41,7 @@
     letter-spacing: var(--leading-md);
 
 
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 767px) {
         font-size: var(--text-lg);
         letter-spacing: var(--leading-lg);
     }
@@ -51,7 +54,7 @@
 
     color: var(--color-silver);
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 767px) {
         font-size: var(--text-md);
         letter-spacing: var(--leading-md);
     }
@@ -68,6 +71,10 @@
     color: var(--color-dark-navy);
     padding: 0.9375rem 1rem;
     transition: all 0.3s ease;
+
+    @media screen and (max-width: 600px) {
+        font-size: var(--text-body);
+    }
 }
 
 .btnWrapper {
