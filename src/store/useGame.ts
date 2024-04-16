@@ -10,6 +10,7 @@ type GameStore = {
   updateBoard: (turn: string, index: number) => void;
   winner: string | null;
   setWinner: (winner: string | null) => void;
+  resetWinner: () => void;
   hasGameStarted: boolean;
   winPattern: number[] | null;
   setWinPattern: (pattern: number[] | null) => void;
@@ -28,17 +29,18 @@ type GameStore = {
   };
   playerOneChoice: string;
   setPlayerOneChoice: (choice: string) => void;
+  isCpuToPlay: boolean;
+  toggleCpuTurn: () => void;
   gameDifficulty: string;
   setGameDifficulty: (gameDifficulty: string) => void;
   resetGameDifficulty: () => void;
 };
 
 const useGame = create<GameStore>((set) => ({
-  mark: "X",
+  mark: X,
   setMark: (mark) => set({ mark: mark }),
-  turn: "X",
+  turn: X,
   currentBoard: Array(9).fill(""),
-
   updateBoard: (turn, index) => {
     set((state) => {
       // Create a new copy of the current board array
@@ -46,7 +48,7 @@ const useGame = create<GameStore>((set) => ({
       newBoard[index] = turn;
 
       // Toggle the turn
-      const newTurn = state.turn === "X" ? "O" : "X";
+      const newTurn = state.turn === X ? O : X;
 
       // Return the new state object
       return {
@@ -59,6 +61,7 @@ const useGame = create<GameStore>((set) => ({
 
   winner: null,
   setWinner: (winner) => set({ winner: winner }),
+  resetWinner: () => set({ winner: null }),
   winPattern: null,
   setWinPattern: (pattern) => set({ winPattern: pattern }),
   hasGameStarted: false,
@@ -66,7 +69,7 @@ const useGame = create<GameStore>((set) => ({
   clearBoard: () =>
     set({
       currentBoard: Array(9).fill(""),
-      turn: "X",
+      turn: X,
       winPattern: null,
     }),
   score: {
@@ -108,6 +111,14 @@ const useGame = create<GameStore>((set) => ({
       },
     });
   },
+  isCpuToPlay: false,
+  toggleCpuTurn: () =>
+    set((state) => {
+      return {
+        ...state,
+        isCpuToPlay: !state.isCpuToPlay,
+      };
+    }),
   gameDifficulty: "",
   setGameDifficulty: (difficulty) => set({ gameDifficulty: difficulty }),
   resetGameDifficulty: () => set({ gameDifficulty: "" }),
