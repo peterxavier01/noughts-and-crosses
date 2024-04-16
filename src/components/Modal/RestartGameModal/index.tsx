@@ -13,6 +13,7 @@ const RestartGameModal = () => {
   const clearBoard = useGame((state) => state.clearBoard);
   const clearScore = useGame((state) => state.clearScore);
   const resetGameDifficulty = useGame((state) => state.resetGameDifficulty);
+  const resetWinner = useGame((state) => state.resetWinner);
 
   const setScreen = useGameScreen((state) => state.setScreen);
 
@@ -25,6 +26,7 @@ const RestartGameModal = () => {
     setScreen("start");
     clearBoard();
     clearScore();
+    resetWinner();
     resetGameDifficulty();
   };
 
