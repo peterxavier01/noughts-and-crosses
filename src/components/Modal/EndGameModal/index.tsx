@@ -18,6 +18,7 @@ const EndGameModal = () => {
   const clearBoard = useGame((state) => state.clearBoard);
   const clearScore = useGame((state) => state.clearScore);
   const playerChoice = useGame((state) => state.playerChoice);
+  const resetWinner = useGame((state) => state.resetWinner);
 
   const mode = useGameMode((state) => state.mode);
   const resetGameDifficulty = useGame((state) => state.resetGameDifficulty);
@@ -29,11 +30,13 @@ const EndGameModal = () => {
     onClose();
     clearBoard();
     clearScore();
+    resetWinner();
     resetGameDifficulty();
     setScreen("start");
   };
 
   const nextRoundHandler = () => {
+    resetWinner();
     onClose();
     clearBoard();
   };
