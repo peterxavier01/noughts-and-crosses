@@ -12,19 +12,26 @@ function App() {
   const screen = useGameScreen((state) => state.screen);
 
   return (
-    <div className="main">
-      <AnimatePresence mode="wait">
-        {screen === "start" ? (
-          <StartScreen key="start-screen" />
-        ) : screen === "play" ? (
-          <GameScreen key="game-screen" />
-        ) : null}
-      </AnimatePresence>
+    <main
+      className="main-wrapper"
+      style={{
+        height: screen === "start" ? "92vh" : screen === "play" ? "100%" : "",
+      }}
+    >
+      <div className="main-content">
+        <AnimatePresence mode="wait">
+          {screen === "start" ? (
+            <StartScreen key="start-screen" />
+          ) : screen === "play" ? (
+            <GameScreen key="game-screen" />
+          ) : null}
+        </AnimatePresence>
 
-      <AnimatePresence>
-        <Modal key="modal" />
-      </AnimatePresence>
-    </div>
+        <AnimatePresence>
+          <Modal key="modal" />
+        </AnimatePresence>
+      </div>
+    </main>
   );
 }
 
