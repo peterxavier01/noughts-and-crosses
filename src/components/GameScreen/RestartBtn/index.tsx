@@ -8,7 +8,7 @@ const RestartBtn = () => {
 
   return (
     <button className={styles.container} onClick={() => onOpen()}>
-      <img src={Icon} alt="" width={20} height={20} className={styles.icon} />
+      <img src={Icon} alt="" className={styles.icon} />
     </button>
   );
 };
