@@ -12,3 +12,6 @@ export const PVCPU = "PvCPU";
 export const EASY = "easy";
 export const NORMAL = "normal";
 export const HARD = "hard";
+
+export const HUMAN = "human";
+export const AI = "ai";
