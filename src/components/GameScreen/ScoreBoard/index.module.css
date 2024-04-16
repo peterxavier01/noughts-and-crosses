@@ -11,10 +11,18 @@
     font-weight: var(--font-medium);
     font-size: var(--text-body);
     letter-spacing: var(--leading-body);
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--text-xxs);
+    }
 }
 
 .score {
     font-weight: var(--font-bold);
     font-size: var(--text-md);
     letter-spacing: var(--leading-md);
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--text-sm);
+    }
 }
