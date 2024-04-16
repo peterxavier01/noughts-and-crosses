@@ -1,18 +1,13 @@
-import { useEffect } from "react";
-
 import useGame from "../../../store/useGame";
-import useEndGameModal from "../../../store/useEndGameModal";
 
 import IconXOutline from "../../../assets/icon-x-outline.svg";
 import IconOOutline from "../../../assets/icon-o-outline.svg";
 import IconX from "../../../assets/IconX";
 import IconO from "../../../assets/iconO";
 
-import { calculateWinner } from "../../../lib/utils";
+import { O, X } from "../../../lib/constants";
 
 import styles from "./index.module.css";
-
-import { O, X } from "../../../lib/constants";
 
 type CellProps = {
   index: number;
@@ -24,32 +19,15 @@ const Cell: React.FC<CellProps> = ({ index, cell }) => {
   const updateBoard = useGame((state) => state.updateBoard);
   const currentBoard = useGame((state) => state.currentBoard);
   const winner = useGame((state) => state.winner);
-  const setWinner = useGame((state) => state.setWinner);
   const winPattern = useGame((state) => state.winPattern);
-
-  const onOpen = useEndGameModal((state) => state.onOpen);
+  const isCpuToPlay = useGame((state) => state.isCpuToPlay);
 
   // Return true for all indexes that contain the win pattern
   const cellMatch = winPattern?.includes(index);
 
-  // Update the current board state and if there is no winner
-  const clickHandler = () => {
-    if (currentBoard[index] === "" && !calculateWinner(currentBoard)) {
-      updateBoard(turn, index);
-    }
+  const clickHandler = (index: number) => {
+    updateBoard(turn, index);
   };
-
-  // Get the winner
-  useEffect(() => {
-    setWinner(calculateWinner(currentBoard));
-  }, [currentBoard, setWinner]);
-
-  // Open modal when the game is over
-  useEffect(() => {
-    if (winner) {
-      onOpen();
-    }
-  }, [winner, onOpen]);
 
   // Return any cell that is selected or marked
   const isMarked = currentBoard[index] !== "";
@@ -64,6 +42,7 @@ const Cell: React.FC<CellProps> = ({ index, cell }) => {
         style={{ backgroundColor: matchCellX ? "var(--color-light-blue)" : "" }}
       >
         <IconX
+          className={styles.iconSolid}
           currentColor={
             matchCellX
               ? "var(--color-semi-dark-navy)"
@@ -83,6 +62,7 @@ const Cell: React.FC<CellProps> = ({ index, cell }) => {
         }}
       >
         <IconO
+          className={styles.iconSolid}
           currentColor={
             matchCellO
               ? "var(--color-semi-dark-navy)"
@@ -94,12 +74,16 @@ const Cell: React.FC<CellProps> = ({ index, cell }) => {
   }
 
   return (
-    <button className={styles.container} onClick={clickHandler}>
+    <button
+      className={styles.container}
+      onClick={isCpuToPlay ? () => {} : () => clickHandler(index)}
+    >
       <img
-        src={turn === "X" ? IconXOutline : IconOOutline}
+        src={turn === X ? IconXOutline : IconOOutline}
         alt=""
         width={65}
         height={65}
+        className={styles.iconOutline}
       />
     </button>
   );
