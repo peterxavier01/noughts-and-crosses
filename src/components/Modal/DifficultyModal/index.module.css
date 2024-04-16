@@ -1,13 +1,14 @@
 .container {
     h2 {
-        font-size: var(--text-md);
+        font-size: var(--text-lg);
         font-weight: var(--font-bold);
         letter-spacing: var(--leading-lg);
         color: var(--color-silver);
         margin-bottom: 1.875rem;
 
-        @media screen and (min-width: 768px) {
-            font-size: var(--text-lg);
+        @media screen and (max-width: 767px) {
+            font-size: var(--text-md);
+            letter-spacing: var(--leading-md);
         }
     }
 }
@@ -29,6 +30,11 @@
     letter-spacing: var(--leading-md);
     color: var(--color-silver);
     opacity: 0.5;
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--text-sm);
+        letter-spacing: var(--leading-sm);
+    }
 
     &::after {
         position: absolute;
