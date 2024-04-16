@@ -1,13 +1,13 @@
 .container {
     h4 {
-        font-size: var(--text-md);
+        font-size: var(--text-lg);
         font-weight: var(--font-bold);
         letter-spacing: var(--leading-lg);
         color: var(--color-silver);
         margin-bottom: 1.875rem;
 
-        @media screen and (min-width: 768px) {
-            font-size: var(--text-lg);
+        @media screen and (max-width: 768px) {
+            font-size: var(--text-md);
         }
     }
 
@@ -28,6 +28,10 @@
         color: var(--color-dark-navy);
         padding: 0.9375rem 1rem;
         transition: all 300ms ease 0s;
+
+        @media screen and (max-width: 600px) {
+            font-size: var(--text-body);
+        }
     }
 
     .btnOne {
