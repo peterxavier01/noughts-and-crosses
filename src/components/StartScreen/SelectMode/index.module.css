@@ -1,0 +1,50 @@
+.rowThree {
+    button {
+        cursor: pointer;
+        border: none;
+        width: 100%;
+        border-radius: 0.9375rem;
+        text-transform: uppercase;
+        font-size: var(--text-sm);
+        font-weight: bold;
+        letter-spacing: var(--leading-xs);
+        padding: 1.0625rem 0.625rem;
+        color: var(--color-dark-navy);
+        margin-bottom: 1.25rem;
+        transition: all 200ms ease 0s;
+
+        @media screen and (max-width: 767px) {
+            font-size: var(--text-xs);
+        }
+    }
+
+    .btnOne {
+        background-color: var(--color-light-yellow);
+        box-shadow: rgb(204, 139, 19) 0px 8px;
+
+        &:active {
+            box-shadow: rgb(204, 139, 19) 0px 4px;
+            transform: translateY(0.3125rem);
+        }
+    }
+
+    .btnTwo {
+        background-color: var(--color-light-blue);
+        box-shadow: rgb(17, 140, 135) 0px 8px;
+
+        &:active {
+            box-shadow: rgb(17, 140, 135) 0px 4px;
+            transform: translateY(0.3125rem);
+        }
+    }
+
+    .btnThree {
+        background: hsl(167, 90%, 55%);
+        box-shadow: hsl(167, 90%, 35%) 0px 8px;
+
+        &:active {
+            box-shadow: hsl(167, 90%, 35%) 0px 4px;
+            transform: translateY(0.3125rem);
+        }
+    }
+}
