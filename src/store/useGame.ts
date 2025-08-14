@@ -6,7 +6,9 @@ type GameStore = {
   mark: string;
   setMark: (mark: string) => void;
   turn: string;
+  setTurn: (turn: string) => void;
   currentBoard: string[];
+  setCurrentBoard: (index: number) => void;
   updateBoard: (turn: string, index: number) => void;
   winner: string | null;
   setWinner: (winner: string | null) => void;
@@ -40,8 +42,20 @@ const useGame = create<GameStore>((set) => ({
   mark: X,
   setMark: (mark) => set({ mark: mark }),
   turn: X,
+  setTurn: (turn) => set({ turn: turn }),
   currentBoard: Array(9).fill(""),
+  setCurrentBoard: (index) =>
+    set((state) => {
+      const newBoard = [...state.currentBoard];
+      newBoard[index] = "X";
+
+      return {
+        ...state,
+        currentBoard: newBoard,
+      };
+    }),
   updateBoard: (turn, index) => {
+    console.log("updateBoard called with turn:", turn, "index:", index);
     set((state) => {
       // Create a new copy of the current board array
       const newBoard = [...state.currentBoard];
@@ -49,6 +63,8 @@ const useGame = create<GameStore>((set) => ({
 
       // Toggle the turn
       const newTurn = state.turn === X ? O : X;
+
+      console.log("Board updated. New board:", newBoard, "New turn:", newTurn);
 
       // Return the new state object
       return {
@@ -71,6 +87,7 @@ const useGame = create<GameStore>((set) => ({
       currentBoard: Array(9).fill(""),
       turn: X,
       winPattern: null,
+      isCpuToPlay: false, // Reset CPU state when clearing board
     }),
   score: {
     X: 0,
@@ -104,7 +121,7 @@ const useGame = create<GameStore>((set) => ({
   playerOneChoice: X,
   setPlayerOneChoice: (choice) => {
     set({
-      playerOneChoice: X,
+      playerOneChoice: choice, // Fix: Use the choice parameter instead of hardcoded X
       playerChoice: {
         player1: choice,
         player2: choice === X ? O : X,
