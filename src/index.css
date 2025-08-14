@@ -46,7 +46,7 @@ body {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   background-color: var(--color-dark-navy);
-  /* user-select: none;
+  user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none; */
+  -ms-user-select: none;
 }
