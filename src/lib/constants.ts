@@ -8,6 +8,7 @@ export const Tie = "Tie";
 
 export const PVP = "PvP";
 export const PVCPU = "PvCPU";
+export const PVPOnline = "PvPOnline";
 
 export const EASY = "easy";
 export const NORMAL = "normal";
