@@ -27,6 +27,5 @@
   display: flex;
   align-items: center;
   width: 100%;
-  /* background-color: rgba(255, 0, 0, 0.2); */
   min-height: 100vh;
 }
