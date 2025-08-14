@@ -37,6 +37,108 @@ export const BoardVariants = {
   exit: { opacity: 0, x: 200, transition: { duration: 1 } },
 };
 
+export const createScreenTextVariants = {
+  initial: { y: -50, opacity: 0, scale: 0.9 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+  exit: {
+    y: -50,
+    opacity: 0,
+    scale: 0.9,
+    transition: { duration: 0.6, ease: "easeIn" },
+  },
+};
+
+export const createScreenFormVariants = {
+  initial: { y: 50, opacity: 0, scale: 0.95 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, delay: 0.2, ease: "easeOut" },
+  },
+  exit: {
+    y: 50,
+    opacity: 0,
+    scale: 0.95,
+    transition: { duration: 0.6, ease: "easeIn" },
+  },
+};
+
+export const createScreenContainerVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+};
+
+export const waitingRoomVariants = {
+  initial: { opacity: 0, scale: 0.95 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.95,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn",
+    },
+  },
+};
+
+export const waitingCardVariants = {
+  initial: { y: 30, opacity: 0, scale: 0.9 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    y: -30,
+    opacity: 0,
+    scale: 0.9,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn",
+    },
+  },
+};
+
+export const arrowIconVariants = {
+  initial: { x: -200, opacity: 0 },
+  animate: { x: 0, opacity: 1, transition: { duration: 1 } },
+  exit: { x: -200, opacity: 0, transition: { duration: 1 } },
+};
+
 /********* Modal Animations ***********/
 export const backdropVariants = {
   hidden: {
