@@ -7,7 +7,6 @@ import ScoreBoard from "./ScoreBoard";
 
 import useGame from "../../store/useGame";
 import useGameMode from "../../store/useGameMode";
-import useInviteModal from "../../store/useInviteModal";
 
 import {
   BoardVariants,
@@ -15,7 +14,7 @@ import {
   headerVariants,
 } from "../../animations";
 
-import { O, PVCPU, PVP, X } from "../../lib/constants";
+import { O, PVCPU, PVP, PVPOnline, X } from "../../lib/constants";
 
 import styles from "./index.module.css";
 
@@ -26,8 +25,6 @@ const GameScreen = () => {
   const mode = useGameMode((state) => state.mode);
   const playerChoice = useGame((state) => state.playerChoice);
 
-  const onOpen = useInviteModal((state) => state.onOpen);
-
   let textX;
   let textO;
 
@@ -36,14 +33,15 @@ const GameScreen = () => {
     textO = playerChoice.player1 === O ? "P1" : "P2";
   }
 
+  if (mode === PVPOnline) {
+    textX = playerChoice.player1 === X ? "P1" : "P2";
+    textO = playerChoice.player1 === O ? "P1" : "P2";
+  }
+
   if (mode === PVCPU) {
     textX = playerChoice.player1 === X ? "YOU" : "CPU";
     textO = playerChoice.player1 === O ? "YOU" : "CPU";
   }
-
-  const handleClick = () => {
-    onOpen();
-  };
 
   return (
     <div className={styles.gameWrapper}>
@@ -94,11 +92,6 @@ const GameScreen = () => {
           score={score.O}
         />
       </motion.div>
-      {mode === PVP && (
-        <button className={styles.invite} onClick={handleClick}>
-          Invite Player
-        </button>
-      )}
     </div>
   );
 };
