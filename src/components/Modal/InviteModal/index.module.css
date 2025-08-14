@@ -7,14 +7,119 @@
     font-weight: var(--font-bold);
     letter-spacing: var(--leading-xs);
     color: var(--color-dark-navy);
-    padding: 0.9375rem 1rem;
+    padding: 1.2rem 1rem;
     transition: all 0.3s ease;
-
     background-color: var(--color-light-yellow);
     box-shadow: rgb(204, 139, 19) 0px 4px;
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--text-body);
+        letter-spacing: var(--leading-body);
+        padding: 1rem;
+    }
 
     &:active {
         box-shadow: rgb(204, 139, 19) 0px 2px;
         transform: translateY(0.15rem);
+    }
+}
+
+.container input {
+    padding: 1.35em 1em;
+    border-radius: 0.9375rem;
+    outline: none;
+    border: none;
+    margin-right: .5em;
+    font-weight: var(--font-bold);
+    font-size: var(--text-xs);
+    width: max-content;
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--text-body);
+    }
+}
+
+.container a {
+    color: var(--color-silver);
+    text-transform: lowercase;
+    display: block;
+    margin-bottom: 1em;
+}
+
+.copyText {
+    background-color: var(--color-dark-navy);
+    border-radius: 4px;
+    padding: .3em;
+    color: var(--color-light-blue);
+    text-transform: uppercase;
+    margin-bottom: .5em;
+    font-size: var(--text-body);
+    letter-spacing: var(--leading-body);
+}
+
+.divider {
+    margin-block: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+
+    span:not(span:nth-of-type(2)) {
+        display: inline-block;
+        height: 2px;
+        width: 50px;
+        background-color: var(--color-silver);
+    }
+
+    span:nth-of-type(2) {
+        color: var(--color-silver);
+    }
+}
+
+.error {
+    margin-top: 0.5rem;
+    font-size: var(--text-body);
+    font-weight: var(--font-bold);
+    color: rgb(255, 103, 103);
+}
+
+.loadingText {
+    color: var(--color-silver);
+    font-weight: var(--font-bold);
+    font-size: var(--text-md);
+    letter-spacing: var(--leading-md);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--text-xs);
+        letter-spacing: var(--leading-xs);
+    }
+
+    .loader {
+        border: 2px solid var(--color-silver);
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        animation: loading 1s linear infinite;
+
+        @media screen and (max-width: 767px) {
+            height: 30px;
+            width: 30px;
+        }
+    }
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg)
     }
 }
